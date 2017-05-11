@@ -18,22 +18,23 @@ class statsite::install inherits statsite {
     path => ['/usr/bin', '/bin'],
   }
 
-  file { $statsite::install_path:
+  file { [$statsite::install_path,
+          $version_path]:
     ensure => directory,
   } ->
   exec { 'statsite::install::download':
     command => $curl_command,
-    unless  => "test -d ${version_path}",
+    unless  => "test -d ${version_path}/src",
     creates => "${statsite::install_path}/${package}",
   } ~>
   exec { 'statsite::install::extract':
-    command => "tar axf ${package}",
-    creates => $version_path,
+    command => "tar --strip-components 1 -axf ${package} -C ${version_path}",
+    creates => "${version_path}/src",
   } ~>
   exec { 'statsite::install::compile':
     cwd     => $version_path,
-    command => 'make',
-    creates => "${version_path}/statsite",
+    command => "${version_path}/bootstrap.sh && ${version_path}/configure && make && ln -s src/statsite",
+    creates => "${version_path}/src/statsite",
     require => Package[$packages],
   }
 

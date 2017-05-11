@@ -19,6 +19,12 @@ pid_file = <%= @pid_file %>
 binary_stream = <%= @binary_stream %>
 use_type_prefix = <%= @use_type_prefix %>
 extended_counters = <%= @extended_counters %>
+<% if @extended_counters == 1 and ![nil, '', :undef].include?(@extended_counters_include) -%>
+extended_counters_include = <% @extended_counters_include.each_with_index do |counter, i| -%><%= counter -%><%=',' if i < (@extended_counters_include.size - 1) -%><% end %>
+<% end -%>
+<% if ![nil, '', :undef].include?(@timers_include) -%>
+timers_include = <% @timers_include.each_with_index do |timer, i| -%><%= timer -%><%=',' if i < (@timers_include.size - 1) -%><% end %>
+<% end -%>
 <%- @histograms.each do |histogram| -%>
 
 [histogram_<%= histogram['name'] %>]

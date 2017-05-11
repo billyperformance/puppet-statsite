@@ -17,7 +17,7 @@ class statsite::params {
     }
 
     'RedHat': {
-      $packages   = ['scons', 'make', 'gcc-c++']
+      $packages   = ['scons', 'make', 'gcc-c++', 'automake', 'autoconf']
       if    ($::operatingsystem != 'Fedora' and versioncmp($::operatingsystemrelease, '7') >= 0)
          or ($::operatingsystem == 'Fedora' and versioncmp($::operatingsystemrelease, '15') >= 0)
       {
