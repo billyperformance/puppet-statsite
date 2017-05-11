@@ -16,6 +16,7 @@ class statsite::config inherits statsite {
   $binary_stream  = $statsite::binary_stream
   $histograms     = $statsite::histograms
   $timers_include = $statsite::timers_include
+  $quantiles      = $statsite::quantiles
   $extended_counters_include = $statsite::extended_counters_include
 
   if $statsite::stream_cmd {

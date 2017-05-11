@@ -143,6 +143,7 @@ class statsite (
   $init_style                = $statsite::params::init_style,
   $extended_counters_include = [],
   $timers_include            = [],
+  $quantiles                 = [],
   $install_proxy             = undef,
 ) inherits statsite::params {
   $config_file = "${config_path}/config"

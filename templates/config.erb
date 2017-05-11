@@ -25,6 +25,9 @@ extended_counters_include = <% @extended_counters_include.each_with_index do |co
 <% if ![nil, '', :undef].include?(@timers_include) -%>
 timers_include = <% @timers_include.each_with_index do |timer, i| -%><%= timer -%><%=',' if i < (@timers_include.size - 1) -%><% end %>
 <% end -%>
+<% if ![nil, '', :undef].include?(@quantiles) -%>
+ quantiles = <% @quantiles.each_with_index do |quantile, i| -%><%= quantile -%><%=',' if i < (@quantiles.size - 1) -%><% end %>
+<% end -%>
 <%- @histograms.each do |histogram| -%>
 
 [histogram_<%= histogram['name'] %>]
