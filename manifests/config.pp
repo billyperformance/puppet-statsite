@@ -15,7 +15,7 @@ class statsite::config inherits statsite {
   $pid_file       = $statsite::pid_file
   $binary_stream  = $statsite::binary_stream
   $histograms     = $statsite::histograms
-  $counts_prefix  =$$statsite::counts_prefix
+  $counts_prefix  = $statsite::counts_prefix
   $timers_include = $statsite::timers_include
   $quantiles      = $statsite::quantiles
   $extended_counters_include = $statsite::extended_counters_include
