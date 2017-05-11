@@ -19,7 +19,7 @@ pid_file = <%= @pid_file %>
 binary_stream = <%= @binary_stream %>
 use_type_prefix = <%= @use_type_prefix %>
 <% if @counts_prefix -%>
-counts_prefix = <%= @counts_prefix %>
+counts_prefix = <%= @counts_prefix %>.
 <% end -%>
 extended_counters = <%= @extended_counters %>
 <% if @extended_counters == 1 and ![nil, '', :undef].include?(@extended_counters_include) -%>
