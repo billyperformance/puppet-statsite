@@ -137,6 +137,7 @@ class statsite (
   $pid_file                  = '/var/run/statsite.pid',
   $binary_stream             = 0,
   $use_type_prefix           = 1,
+  $counts_prefix             = 'counts',
   $extended_counters         = 0,
   $histograms                = [],
   $packages                  = $statsite::params::packages,
